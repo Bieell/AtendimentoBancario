@@ -1,6 +1,7 @@
 package TADS;
 
 import TADS.entities.Node;
+import atendimentobancario.model.Cliente;
 
 public class Lista {
 
@@ -19,7 +20,7 @@ public class Lista {
         size = 0;
     }
 
-    public void insertInicio(int insertItem) {
+    public void insertInicio(Cliente insertItem) {
         Node novoNo = new Node(insertItem);
         
         if (isEmpty()) // firstNode e lastNode se referem ao mesmo objeto
@@ -34,7 +35,7 @@ public class Lista {
         size++;
     }
 
-    public void insertFim(int insertItem) {
+    public void insertFim(Cliente insertItem) {
         Node novoNo = new Node(insertItem);
         if (isEmpty()) {
             firstNode = lastNode = novoNo;
@@ -46,13 +47,13 @@ public class Lista {
         size++;
     }
 
-    public int removeInicio() {
+    public Cliente removeInicio() {
         if (isEmpty()) // gera exceção se List está vazia
         {
-            return -1;
+            return null;
         }
 
-        int removedItem = firstNode.getObject(); // retrieve data being removed
+        Cliente removedItem = firstNode.getObject(); // retrieve data being removed
 
         // atualiza referências firstNode e lastNode - unico elemento da lista 
         if (firstNode == lastNode) {
@@ -65,13 +66,13 @@ public class Lista {
         return removedItem;
     }
 
-    public int removeFim() {
+    public Cliente removeFim() {
         if (isEmpty()) // lança exceção se a lista está vazia
         {
-            return -1;
+            return null;
         }
 
-        int removedItem = lastNode.getObject(); // retrieve data being removed
+        Cliente removedItem = lastNode.getObject(); // retrieve data being removed
 
         // atualiza referências firstNode e lastNode - unico elemento da lista
         if (firstNode == lastNode) {
@@ -109,7 +110,7 @@ public class Lista {
     }
     
     //insere em uma posicao específica
-    public void inserePosicao(int pos, int valor){
+    public void inserePosicao(int pos, Cliente valor){
         if(pos <= 0)
             System.out.println("A primeira posicao eh a 1. Inserir uma posicao existente!");
         else{
@@ -136,10 +137,10 @@ public class Lista {
     }
     
     //remove uma posicao especifica
-    public int removePosicao(int pos){
+    public Cliente removePosicao(int pos){
         if(pos <= 0){
             System.out.println("A primeira posicao eh a 1. Inserir uma posicao existente!");
-            return -1;
+            return null;
         }else{
             if(pos == 1) // remover no inicio
                 return removeInicio();
@@ -147,7 +148,7 @@ public class Lista {
                 if(pos >= size) // remover no fim
                     return removeFim();
                 else{
-                    int valorRemovido;
+                    Cliente valorRemovido;
                     // percorrer a lista para encontrar a posicao
                     Node temp = firstNode;
                     for(int i=1; i<pos; i++)

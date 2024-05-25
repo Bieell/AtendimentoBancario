@@ -1,6 +1,7 @@
 package TADS;
 
 import TADS.entities.Node;
+import atendimentobancario.model.Cliente;
 
 public class Fila {
     private Node inicio, fim;
@@ -14,8 +15,8 @@ public class Fila {
         return inicio == null;
     }
     
-    public void enqueue(int dado) {
-        Node newNo = new Node(dado);
+    public void enqueue(Cliente cliente) {
+        Node newNo = new Node(cliente);
         if(inicio == null) {
             inicio = newNo;
             fim = inicio;
@@ -26,8 +27,8 @@ public class Fila {
         fim = newNo;
     }
     
-    public int dequeue() {
-        if(isEmpty()) return -1;
+    public Cliente dequeue() {
+        if(isEmpty()) return null;
         
         Node temp = inicio;
         inicio = inicio.getNext();
