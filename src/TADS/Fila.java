@@ -5,6 +5,7 @@ import atendimentobancario.model.Cliente;
 
 public class Fila {
     private Node inicio, fim;
+    public int length = 0;
     
     public Fila() {
         inicio = null;
@@ -16,6 +17,7 @@ public class Fila {
     }
     
     public void enqueue(Cliente cliente) {
+        length++;
         Node newNo = new Node(cliente);
         if(inicio == null) {
             inicio = newNo;
@@ -29,7 +31,7 @@ public class Fila {
     
     public Cliente dequeue() {
         if(isEmpty()) return null;
-        
+        length--;
         Node temp = inicio;
         inicio = inicio.getNext();
         if(inicio == null) fim = null;

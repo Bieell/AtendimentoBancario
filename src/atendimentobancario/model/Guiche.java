@@ -4,47 +4,52 @@ import atendimentobancario.Main;
 
 public class Guiche {
     private int numero;
-    private boolean ocupado;
     private int tempoRestanteOcupado;
+    private int quantidadeSaques;
+    private int quantidadePagamentos;
+    private int quantidadeDepositos;
 
     public Guiche(int numero) {
         this.numero = numero;
-        this.ocupado = false;
-        this.tempoRestanteOcupado = 0;
+        tempoRestanteOcupado = 0;
+        quantidadeSaques = 0;
+        quantidadeDepositos = 0;
     }
     
     public boolean estaOcupado() {
-        return this.ocupado;
-    }
-    
-    public void ocupar() {
-        this.ocupado = true;
-    }
-    
-    public void desocupar() {
-        this.ocupado = false;
+        return tempoRestanteOcupado > 0;
     }
     
     public int tempoRestante() {
-        return this.tempoRestanteOcupado;
+        return tempoRestanteOcupado;
     }
     
     public void adicionarTempoOcupacao(int transacao) {
-        ocupar();
         switch(transacao) {
             case 0:
-                this.tempoRestanteOcupado += 60;
-                Main.contadorSaque++;
+                System.out.println("Cliente vai sacar dinheiro. Tempo de Atendimento: 60 segundos" );
+                tempoRestanteOcupado += 60;
+                quantidadeSaques++;
                 break;
             case 1:
-                this.tempoRestanteOcupado += 90;
-                Main.contadorDeposito++;
+                System.out.println("Cliente vai depositar dinheiro. Tempo de Atendimento: 90 segundos" );
+                tempoRestanteOcupado += 90;
+                quantidadeDepositos++;
                 break;
             case 2:
-                this.tempoRestanteOcupado += 120;
-                Main.contadorPagamento++;
+                System.out.println("Cliente vai realizar pagamento. Tempo de Atendimento: 120 segundos" );
+                tempoRestanteOcupado += 120;
+                quantidadePagamentos++;
                 break;
         }
+    }
+    
+    public void removerTempoOcupacao(int tempo) {
+        tempoRestanteOcupado--;
+    }
+
+    public int getNumero() {
+        return numero;
     }
     
 }
