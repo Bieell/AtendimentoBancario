@@ -12,6 +12,7 @@ public class Guiche {
         tempoRestanteOcupado = 0;
         quantidadeSaques = 0;
         quantidadeDepositos = 0;
+        quantidadePagamentos = 0;
     }
     
     public boolean estaOcupado() {
@@ -49,5 +50,18 @@ public class Guiche {
     public int getNumero() {
         return NUMERO;
     }
+
+    public int getQuantidadeSaques() {
+        return quantidadeSaques;
+    }
+
+    public int getQuantidadePagamentos() {
+        return quantidadePagamentos;
+    }
+
+    public int getQuantidadeDepositos() {
+        return quantidadeDepositos;
+    }
+    
     
 }
