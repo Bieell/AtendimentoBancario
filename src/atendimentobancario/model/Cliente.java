@@ -3,17 +3,18 @@ package atendimentobancario.model;
 import java.time.LocalDateTime;
 
 public class Cliente {
-    private int id;
+    private int horarioEntrada;
+    
 
-    public Cliente(int id) {
-        this.id = id;
+    public Cliente(int horarioEntrada) {
+        this.horarioEntrada = horarioEntrada;
     }
 
     public Cliente() {
     }
 
-    public int getId() {
-        return id;
+    public int getHorarioEntrada() {
+        return horarioEntrada;
     }
     
     

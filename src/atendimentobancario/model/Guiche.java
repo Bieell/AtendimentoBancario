@@ -1,16 +1,14 @@
 package atendimentobancario.model;
 
-import atendimentobancario.Main;
-
 public class Guiche {
-    private int numero;
+    private final int NUMERO;
     private int tempoRestanteOcupado;
     private int quantidadeSaques;
     private int quantidadePagamentos;
     private int quantidadeDepositos;
 
     public Guiche(int numero) {
-        this.numero = numero;
+        this.NUMERO = numero;
         tempoRestanteOcupado = 0;
         quantidadeSaques = 0;
         quantidadeDepositos = 0;
@@ -49,7 +47,7 @@ public class Guiche {
     }
 
     public int getNumero() {
-        return numero;
+        return NUMERO;
     }
     
 }
