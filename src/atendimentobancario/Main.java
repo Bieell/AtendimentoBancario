@@ -24,7 +24,7 @@ public class Main {
         while(tempoExpedienteAtual <= TEMPO_FINAL_EXPEDIENTE || !filaVazia || temGuicheOcupado) {
             int qtdGuichesOcupados = 0;
             filaVazia = fila.isEmpty();
-            System.out.println("\nTempo de Expediente: " + horarioExpediente(tempoExpedienteAtual++));
+            System.out.println("\nTempo de Expediente: " + horarioExpediente(tempoExpedienteAtual));
             System.out.println("Quantidade de clientes na fila: " + fila.length);
             Guiche guicheDisponivel = null;        
             
@@ -60,7 +60,8 @@ public class Main {
             }
             
             if(tempoExpedienteAtual > TEMPO_FINAL_EXPEDIENTE) tempoExtraExpediente++;
-            Thread.sleep(2);
+            
+            tempoExpedienteAtual++;
         }
         
         for(Guiche guiche : ARRAY_GUICHES) {
@@ -73,11 +74,11 @@ public class Main {
         
         System.out.println("\n================ Expediente encerrado ================\n");
         System.out.println("Número de Clientes atendidos: " + numeroClientes);
-        System.out.println("Tempo de espera médio: " + tempoDeEsperaMedio);
+        System.out.println("Tempo de espera médio: " + converterSegundos(tempoDeEsperaMedio));
         System.out.println("Total de Saques: " + totalDeSaques);
         System.out.println("Total de Depósitos: " + totalDeDepositos);
         System.out.println("Total de Pagamentos: " + totalDePagamentos);
-        System.out.println("Tempo extra do expediente: " + tempoExtraExpediente);
+        System.out.println("Tempo extra do expediente: " + converterSegundos(tempoExtraExpediente));
         System.out.println("\n================ FIM ================\n");
     }
     
@@ -113,5 +114,13 @@ public class Main {
         String tempoRestante = String.format("%02d:%02d:%02d", horas, minutos, segundosRestantes);
 
         return tempoRestante;
+    }
+    
+    public static String converterSegundos(double segundos) {
+        int horas = (int) segundos / 3600;
+        int minutos = (int) (segundos % 3600) / 60;
+        int segundosRestantes = (int) segundos % 60;
+        
+        return String.format("%02d:%02d:%02d", horas, minutos, segundosRestantes);
     }
 }
