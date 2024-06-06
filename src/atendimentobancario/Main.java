@@ -8,7 +8,7 @@ import java.util.Random;
 public class Main {
     private static final Guiche[] ARRAY_GUICHES = {new Guiche(1), new Guiche(2), new Guiche(3)};
     private static final int TEMPO_FINAL_EXPEDIENTE = 21600;
-    private static Fila fila = fila = new Fila();
+    private static Fila fila = new Fila();
     private static int tempoExpedienteAtual = 0;
     private static int numeroClientes = 0;
     private static int tempoEsperaTotal = 0;
