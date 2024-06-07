@@ -36,7 +36,7 @@ public class Main {
             System.out.println("Quantidade de clientes na fila: " + fila.length);
 
             // Variável para armazenar um guichê disponível
-            Guiche guicheDisponivel = null;        
+            Guiche guicheDisponivel = null;  
             
             // Itera sobre os guichês para verificar o status de ocupação
             for(Guiche guiche : ARRAY_GUICHES) {                                
@@ -77,6 +77,7 @@ public class Main {
             
             // Incrementa o tempo do expediente
             tempoExpedienteAtual++;
+            
         }
         
         // Após o expediente, soma as transações realizadas em todos os guichês
@@ -97,7 +98,7 @@ public class Main {
         System.out.println("Total de Depósitos: " + totalDeDepositos);
         System.out.println("Total de Pagamentos: " + totalDePagamentos);
         System.out.println("Tempo extra do expediente: " + converterSegundos(tempoExtraExpediente));
-        System.out.println("\n================ FIM ================\n");
+        System.out.println("\n======================== FIM =========================\n");
     }
     
     // Função para alocar um cliente a um guichê
